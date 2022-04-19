@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>~/git/pushswap_42/doc/algo.md.html</title>
+<meta name="Generator" content="Vim/8.1">
+<meta name="plugin-version" content="vim8.1_v1">
+<meta name="syntax" content="none">
+<meta name="settings" content="use_css,no_foldcolumn,expand_tabs,prevent_copy=">
+<meta name="colorscheme" content="nord">
+<style type="text/css">
+<!--
+pre { font-family: monospace; color: #ffffff; background-color: #2e333f; }
+body { font-family: monospace; color: #ffffff; background-color: #2e333f; }
+* { font-size: 1.1em; }
+.notesH1 { color: #5fffaf; font-size: 120%; }
+.notesCode { color: #afd7af; }
+a { color: hotpink; }
+-->
+</style>
+</head>
+<body>
+<pre id='vimCodeElement'>
+<span class="notesH1"># Algorithm (Thanks to Youri Bougre)</span>
+
+Input:
+<span class="notesCode">    ./pushswap 5 3 9 2 7</span>
+
+<span class="notesH1">0.</span> Init the Stack_A.
+
+<span class="notesCode">    Stack_A:</span>
+<span class="notesCode">    5</span>
+<span class="notesCode">    3</span>
+<span class="notesCode">    9</span>
+<span class="notesCode">    2</span>
+<span class="notesCode">    7</span>
+
+<span class="notesH1">1.</span> First we need to find the 'median' so we sort a tab of integer, we
+pick its middle element as the 'median'.
+
+<span class="notesCode">    Tab:</span>
+<span class="notesCode">    9</span>
+<span class="notesCode">    7</span>
+<span class="notesCode">    5  ← median</span>
+<span class="notesCode">    3</span>
+<span class="notesCode">    2</span>
+
+<span class="notesH1">2.</span> We push from Stack_A to Stack_B all the elements that are smaller
+than the median (by repeating 'ra' and using 'pb' when required).
+
+<span class="notesCode">    Stack_A:            Stack_B:</span>
+<span class="notesCode">    7                   2</span>
+<span class="notesCode">    9                   3</span>
+<span class="notesCode">    5</span>
+
+<span class="notesH1">3.</span> We repeat the steps<span class="notesH1"> 1.</span> and<span class="notesH1"> 2.</span> until there are only 2 elements left in Stack_A.
+
+<span class="notesCode">    Tab:</span>
+<span class="notesCode">    7</span>
+<span class="notesCode">    9  ← new median</span>
+<span class="notesCode">    5</span>
+
+<span class="notesCode">    Stack_A:            Stack_B:</span>
+<span class="notesCode">    7                   5</span>
+<span class="notesCode">    9                   2</span>
+<span class="notesCode">                        3</span>
+
+<span class="notesH1">4.</span> Now the 'pre-sort' is done. We need to find the 'leader' and the
+'cost' for each element, 'pa' the one that has the cheapest cost and
+repeat this process.
+
+'cost' = distance to perform to put a Stack B Element in the right
+location of the Stack A.
+
+'leader' = closest value (in terms of value, not distance) between an Element
+in one Stack and an Element in the other Stack.
+
+<span class="notesCode">    Stack_A:            Stack_B: |cost|leader|</span>
+<span class="notesCode">    7 ← leader          5        | 1  | 7    |</span>
+<span class="notesCode">    9                   3        | 2  | 7    |</span>
+<span class="notesCode">                        2        | 2  | 7    |</span>
+
+Move cheapest cost.
+
+<span class="notesCode">    Stack_A:            Stack_B: |cost|leader|</span>
+<span class="notesCode">    5 ← leader          3        | 1  | 5    |</span>
+<span class="notesCode">    7                   2        | 2  | 5    |</span>
+<span class="notesCode">    9</span>
+
+Move cheapest cost.
+
+<span class="notesCode">    Stack_A:            Stack_B: |cost|leader|</span>
+<span class="notesCode">    3  ← leader         2        | 1  | 3    |</span>
+<span class="notesCode">    5</span>
+<span class="notesCode">    7</span>
+<span class="notesCode">    9</span>
+
+Move cheapest cost.
+
+<span class="notesH1">5.</span> Sorted:
+
+<span class="notesCode">    Stack_A:</span>
+<span class="notesCode">    2</span>
+<span class="notesCode">    3</span>
+<span class="notesCode">    5</span>
+<span class="notesCode">    7</span>
+<span class="notesCode">    9</span>
+</pre>
+</body>
+</html>
+<!-- vim: set foldmethod=manual : -->

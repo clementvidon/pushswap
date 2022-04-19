@@ -1,4 +1,4 @@
-# Algorithm
+# Algorithm (Thanks to Youri Bougre)
 
 Input:
     ./pushswap 5 3 9 2 7
