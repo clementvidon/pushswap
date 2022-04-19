@@ -6,7 +6,7 @@
 /*   By: cvidon <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 14:50:38 by cvidon            #+#    #+#             */
-/*   Updated: 2022/04/12 14:50:50 by cvidon           ###   ########.fr       */
+/*   Updated: 2022/04/19 16:20:07 by cvidon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	ft_parser(t_data *data, int ac, char **av)
 	{
 		if (!ft_isnum(*strtab))
 			ft_error(strtab_ptr, data->tab);
-		num = ft_atoi(*strtab);
+		num = ft_atol(*strtab);
 		if (num > INT_MAX || num < INT_MIN || ft_duplicate(data->tab, i, num))
 			ft_error(strtab_ptr, data->tab);
 		data->tab[i++] = (int)num;
