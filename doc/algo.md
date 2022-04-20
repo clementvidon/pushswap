@@ -2,18 +2,18 @@
 > with athirion@student.42.fr
 > thanks to yobougre@student.42.fr
 
+#   Push Swap Algorithm
+
 #INDEX
 ------
-## Init
-## Pre-sort
-## Sort
-
-# Push Swap Algorithm
+##      Init
+##      Pre-sort
+##      Sort
 
 Input:
     ./push_swap 5 3 9 2 7
 
-## Init
+##      Init
 
 Init the Stack_A.
 
@@ -24,7 +24,7 @@ Init the Stack_A.
     2
     7
 
-## Pre-sort
+##      Pre-sort
 
 First we need to find the 'median' so we sort a tab of integer, we
 pick its middle element as the 'median'.
@@ -57,7 +57,7 @@ Stack_A.
     9                   2
                         3
 
-## Sort
+##      Sort
 
 Now the 'pre-sort' is done. We need to find the 'leader' and the
 'cost' for each element, 'pa' the one that has the cheapest cost and
